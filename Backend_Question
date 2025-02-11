@@ -1,0 +1,8 @@
+1. Assume that each microservices wil retrieve data from the database using unique id(s), the simplest way is to create a service to call each of the microservices directly and store it in the cache. 
+When the user refresh/modify the data, we will make the call again to make sure we get the near real-time data. The pros is this method is easy to implement but the cons is if the data is too much it will take longer time to load.
+
+The other method is we can introduce the container which will organize the API call to microservices for us but I do not have much knowledge in this field so I can only provide a basic concept.
+We create a container, for example RabbitMQ, which we can use a single API call to RabbitMQ and it will organize and call all of the microservices API asynchronously.
+
+2. In my opinion, I will ask the project manager if the performance test is necessary and urgent or not. If not, the team can continue with their work first and after that switch to do the performance test.
+If it is necessary and urgent, we might have to prioritize the work and make sure we work on the most important task first then continue down the priority.
