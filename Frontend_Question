@@ -1,0 +1,3 @@
+2.1 The useCallback is a hook method which help reduce the number of time component will re-render. The useCallback have 2 parameters, function and dependencies. 
+When using useCallback in the component it the first time it render, it will run the function normally. 
+However in the next render, if the dependencies is remaining the same as first render, it will do nothing. The function in useCallback will re-render again when the dependencies change.
