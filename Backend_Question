@@ -1,8 +1,17 @@
-1. Assume that each microservices wil retrieve data from the database using unique id(s), the simplest way is to create a service to call each of the microservices directly and store it in the cache. 
-When the user refresh/modify the data, we will make the call again to make sure we get the near real-time data. The pros is this method is easy to implement but the cons is if the data is too much it will take longer time to load.
+1.1 
+Assume that each microservices wil retrieve data from the database using unique id(s), the simplest way is to create a service to call each of the microservices directly and store it in the cache. When the user refresh/modify the data, we will make the call again to make sure we get the near real-time data. The pros is this method is easy to implement but the cons is if the data is too much it will take longer time to load and when the service that we use to call each microservices unavailable it will disable the ability to retrieve the data.
 
-The other method is we can introduce the container which will organize the API call to microservices for us but I do not have much knowledge in this field so I can only provide a basic concept.
-We create a container, for example RabbitMQ, which we can use a single API call to RabbitMQ and it will organize and call all of the microservices API asynchronously.
+The other method is we can introduce the container which will organize the API call to microservices for us but I do not have much knowledge in this field so I can only provide a basic concept. We create a container, for example RabbitMQ, which we can use a single API call to RabbitMQ and it will organize and call all of the microservices API asynchronously.
 
-2. In my opinion, I will ask the project manager if the performance test is necessary and urgent or not. If not, the team can continue with their work first and after that switch to do the performance test.
+1.2
+In my opinion, I will ask the project manager if the performance test is necessary and urgent or not. If not, the team can continue with their work first and after that switch to do the performance test.
 If it is necessary and urgent, we might have to prioritize the work and make sure we work on the most important task first then continue down the priority.
+
+1.3 UML + Database
+For the Multilingual Product API, assume that it is a Product API that support different languages, we will create basic API which include GET, PUT, POST, DELETE as a product API.
+* GET API will have a productId and language as a parameters
+* PUT API will have a productId, language, description as a parameters
+* POST API will have a productId, language, description as a parameters
+* DELETE API will have a productId and language as a parameters
+
+For the Multilingual Product Search API, we can use a GET search API which have a productIds[] and language as a parameters with page and limit parameters for the paginated format.
