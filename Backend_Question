@@ -15,3 +15,10 @@ For the Multilingual Product API, assume that it is a Product API that support d
 * DELETE API will have a productId and language as a parameters
 
 For the Multilingual Product Search API, we can use a GET search API which have a productIds[] and language as a parameters with page and limit parameters for the paginated format.
+
+Additional requirement:
+For database design, I will create a data table which have a following column: productId, language, description, name.
+productId: The productId will be a unique id for specify the product.
+language: The language will be a language of the data
+description: The description will be a description of the product in the specific language
+name: The name will be a name of the product in the specific language
